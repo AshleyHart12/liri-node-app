@@ -12,7 +12,97 @@ var action = process.argv[2];
 var command = process.argv[3];
 
 
- switch(command) {
+ 
+
+
+// Concert-This
+function bandsInTown(action) {
+
+var query = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+var artist = "";
+    if(err) {
+         console.log("Error Occurred: " + err);
+        } else {
+            console.log("Venue: " + response.VenueDate.name);
+            console.log("location: " + response.VenueData.city);
+            console.log("Date of event: " + response.VenueData.datetime);
+
+}
+};
+
+
+
+// Spotify-This-Song
+function spotifySong (action) {
+
+    var track;
+    if (action === undefined) {
+        track = "The Sign ace of base";
+    } else {
+        track = action;
+    }
+
+    spotify.search({
+        type: 'track', 
+        query: track
+    }, 
+
+        function(error, data) {
+
+    if(error) {
+        console.log("Error Occurred: " + error);
+    } else {
+        console.log("Artist: " + data.tracks.items[0].artists[0].name);
+        console.log("Song Name: " + data.tracks.items[0].name);
+        console.log("Song Preview: " + data.tracks.items[3].preview_url);
+        console.log("Song Album: " + data.tracks.items[0].album.name);
+    }
+});
+};
+
+
+
+// Movie-This
+var movieName = function(action){
+
+var movie;
+    if (action === undefined) {
+        movie = "Mr. Nobody";
+    } else {
+        movie = action;
+    };
+    var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+axios.get(queryURL).then(function(response) {
+    
+    console.log("Title: " + response.data.Title);
+    console.log("Release Year: " + response.data.Year);
+    console.log("IMDB Rating: " + response.data.Rated)
+    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value)
+    console.log("Country produced: " + response.data.Country)
+    console.log("Language: " + response.data.Language)
+    console.log("Plot: " + response.data.Plot)
+    console.log("Actors: " + response.data.Actors)
+    });
+};
+
+// Do-What-It-Says
+var doIt = function() {
+
+fs.readFile("random.txt", "utf8", function(error, data) {
+    if (error) {
+        return console.log(error);
+      }
+      var dataArr = data.split(",");
+
+});
+};
+
+
+
+
+
+switch(action) {
     case 'concert-this':
     bandsintown(command);
     break;
@@ -33,38 +123,7 @@ var command = process.argv[3];
     console.log("Please enter a command: concert-this, spotify-this-song, movie-this, do-what-it-says");
     break;
 }
-
-
-// Concert-This
-
-
-
-// Spotify-This-Song
-
-
-// Movie-This
-var movieName = process.argv[2];
-
-var queryURL2 = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-console.log(queryURL2);
-
-axios.get(queryURL2).then(function(response) {
-    if (movieName === ""){
-        console.log("http://www.omdbapi.com/?t=Mr.Nobody&y=&plot=short&apikey=trilogy")
-    } else {
-    console.log("Title: " + response.data.Title);
-    console.log("Release Year: " + response.data.Year);
-    console.log("IMDB Rating: " + response.data.Rated)
-    console.log("Rotten Tomatoes Rating: " + response.data.Value)
-    console.log("Country produced: " + response.data.Country)
-    console.log("Language: " + response.data.Language)
-    console.log("Plot: " + response.data.Plot)
-    console.log("Actors: " + response.data.Actors)
-    };
-}
-);
-
-// Do-What-It-Says
+      
 
 
 
