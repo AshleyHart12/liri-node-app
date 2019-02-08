@@ -14,28 +14,6 @@ var command = process.argv.slice[3];
 
 
  
-switch(action) {
-    case 'concert-this':
-    bandsintown(command);
-    break;
-
-    case 'spotify-this-song':
-    spotifySong(command);
-    break;
-
-    case 'movie-this':
-    movieName(command);
-    break;
-
-    case 'do-what-it-says':
-    doIt(command);
-    break;
-
-    default:
-    console.log("Please enter a command: concert-this, spotify-this-song, movie-this, or do-what-it-says");
-    break;
-}
-
 
 // Concert-This
 function bandsintown(action) {
@@ -93,30 +71,29 @@ function spotifySong(action) {
 
 
 // Movie-This
-function movieName(action) {
+var movieName = function(action){
 
-var movie;
-    if (action === undefined) {
-        movie = "Mr. Nobody";
-            console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
-            console.log("It's on Netflix!");
-    } else {
-        movie = action;
-    };
-    var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
-
-axios.get(queryURL).then(function(response) {
+    var movie;
+        if (action === undefined) {
+            movie = "Mr. Nobody";
+        } else {
+            movie = action;
+        };
+        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     
-    console.log("Title: " + response.data.Title);
-    console.log("Release Year: " + response.data.Year);
-    console.log("IMDB Rating: " + response.data.Rated)
-    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value)
-    console.log("Country produced: " + response.data.Country)
-    console.log("Language: " + response.data.Language)
-    console.log("Plot: " + response.data.Plot)
-    console.log("Actors: " + response.data.Actors)
-    });
-};
+    axios.get(queryURL).then(function(response) {
+        
+        console.log("Title: " + response.data.Title);
+        console.log("Release Year: " + response.data.Year);
+        console.log("IMDB Rating: " + response.data.Rated)
+        console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value)
+        console.log("Country produced: " + response.data.Country)
+        console.log("Language: " + response.data.Language)
+        console.log("Plot: " + response.data.Plot)
+        console.log("Actors: " + response.data.Actors)
+        });
+    };
+    
 
 // // Do-What-It-Says
 var doIt = function() {
@@ -135,4 +112,24 @@ fs.readFile("random.txt", "utf8", function(error, data) {
 
 
 
+switch(action) {
+    case 'concert-this':
+    bandsintown(command);
+    break;
 
+    case 'spotify-this-song':
+    spotifySong(command);
+    break;
+
+    case 'movie-this':
+    movieName(command);
+    break;
+
+    case 'do-what-it-says':
+    doIt(command);
+    break;
+
+    default:
+    console.log("Please enter a command: concert-this, spotify-this-song, movie-this, or do-what-it-says");
+    break;
+}
