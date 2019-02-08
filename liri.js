@@ -2,6 +2,7 @@ require("dotenv").config();
 var fs = require('fs');
 var keys = require("./keys.js");
 var axios = require("axios");
+var momemt = require("moment");
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify({
     id: keys.spotify.id,
@@ -9,31 +10,59 @@ var spotify = new Spotify({
   });
 
 var action = process.argv[2];
-var command = process.argv[3];
+var command = process.argv.slice[3];
 
 
  
+switch(action) {
+    case 'concert-this':
+    bandsintown(command);
+    break;
+
+    case 'spotify-this-song':
+    spotifySong(command);
+    break;
+
+    case 'movie-this':
+    movieName(command);
+    break;
+
+    case 'do-what-it-says':
+    doIt(command);
+    break;
+
+    default:
+    console.log("Please enter a command: concert-this, spotify-this-song, movie-this, or do-what-it-says");
+    break;
+}
 
 
 // Concert-This
-function bandsInTown(action) {
+function bandsintown(action) {
 
-var query = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
-var artist = "";
-    if(err) {
-         console.log("Error Occurred: " + err);
-        } else {
-            console.log("Venue: " + response.VenueDate.name);
-            console.log("location: " + response.VenueData.city);
-            console.log("Date of event: " + response.VenueData.datetime);
+    var bands;
+    if (action === undefined) {
+        console.log("Please enter a Band or Singer")
+    } else {
+        bands = action;
+    }
 
-}
+var queryURL = "https://rest.bandsintown.com/artists/" + bands + "/events?app_id=codingbootcamp";
+
+    axios.get(queryURL).then(function(response) {
+    
+    console.log("Venue: " + response.data.venue.name);
+    console.log("location: " + response.data.venue.city);
+    console.log("Date of event: " + moment(response.data[0].datetime).format("MM/DD/YYY"));
+
+});
 };
 
 
 
+
 // Spotify-This-Song
-function spotifySong (action) {
+function spotifySong(action) {
 
     var track;
     if (action === undefined) {
@@ -62,12 +91,15 @@ function spotifySong (action) {
 
 
 
+
 // Movie-This
-var movieName = function(action){
+function movieName(action) {
 
 var movie;
     if (action === undefined) {
         movie = "Mr. Nobody";
+            console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
+            console.log("It's on Netflix!");
     } else {
         movie = action;
     };
@@ -86,45 +118,19 @@ axios.get(queryURL).then(function(response) {
     });
 };
 
-// Do-What-It-Says
+// // Do-What-It-Says
 var doIt = function() {
 
 fs.readFile("random.txt", "utf8", function(error, data) {
     if (error) {
         return console.log(error);
-      }
-      var dataArr = data.split(",");
+      } else {
+      var text = data.split(",");
+      spotifySong(random.txt[1]);
+      };
 
 });
 };
-
-
-
-
-
-switch(action) {
-    case 'concert-this':
-    bandsintown(command);
-    break;
-
-    case 'spotify-this-song':
-    spotifySong(command);
-    break;
-
-    case 'movie-this':
-    movieName(command);
-    break;
-
-    case 'do-what-it-says':
-    doIt(command);
-    break;
-
-    default:
-    console.log("Please enter a command: concert-this, spotify-this-song, movie-this, do-what-it-says");
-    break;
-}
-      
-
 
 
 
