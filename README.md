@@ -22,7 +22,19 @@ This app will show the following information about the song you requested in you
 * A preview link of the song from Spotify
 * The album that the song is from
 * ![spotify-this-song](/code/liri-node-app/spotify.png)
-Format: ![Alt Text](url)
+
+**movie-this**
+This will output the following information to your terminal/bash window:
+* Title of the movie
+* Year the movie came out
+* IMDB Rating of the movie
+* Rotten Tomatoes Rating of the movie
+* Country where the movie was produced
+* Language of the movie
+* Plot of the movie
+* Actors in the movie
+![movie-this]
+
 
 
 
