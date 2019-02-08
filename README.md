@@ -33,7 +33,7 @@ This will output the following information to your terminal/bash window:
 * Language of the movie
 * Plot of the movie
 * Actors in the movie
-![movie-this]
+* ![movie-this]
 
 
 
