@@ -18,7 +18,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 * Venue location
 * Date of the Event 
 <br/>
-* ![concert-this](/images/concertThis.png)
+![concert-this](/images/concertThis.png)
 <br/>
 <br/>
 
