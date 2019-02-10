@@ -4,15 +4,19 @@
 * LIRI will accept 4 differnet commands, outlined below.
 
 **For a list of commands, type:**
+&nbsp;
 * ![command line](/images/commandLine.png)
 
 **concert-this**
+&nbsp;
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
 * Name of the venue
 * Venue location
 * Date of the Event 
+&nbsp;
 * ![concert-this app](/images/concertThis.png)
+&nbsp;
 
 **spotify-this**
 This app will show the following information about the song you requested in your terminal/bash window:
