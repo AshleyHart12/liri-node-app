@@ -10,7 +10,7 @@ var spotify = new Spotify({
   });
 
 var action = process.argv[2];
-var command = process.argv.slice[3];
+var command = process.argv[3];
 
 
  
@@ -29,9 +29,9 @@ var queryURL = "https://rest.bandsintown.com/artists/" + bands + "/events?app_id
 
     axios.get(queryURL).then(function(response) {
     
-    console.log("Venue: " + response.data.venue.name);
+    // console.log("Venue: " + response.data.venue.name);
     console.log("location: " + response.data.venue.city);
-    console.log("Date of event: " + moment(response.data[0].datetime).format("MM/DD/YYY"));
+    // console.log("Date of event: " + moment(response.data[0].datetime).format("MM/DD/YYY"));
 
 });
 };
@@ -82,6 +82,7 @@ var movieName = function(action){
         var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     
     axios.get(queryURL).then(function(response) {
+        console.log("---------------------------")
         
         console.log("Title: " + response.data.Title);
         console.log("Release Year: " + response.data.Year);
@@ -91,6 +92,7 @@ var movieName = function(action){
         console.log("Language: " + response.data.Language)
         console.log("Plot: " + response.data.Plot)
         console.log("Actors: " + response.data.Actors)
+        console.log("---------------------------")
         });
     };
     
@@ -98,13 +100,14 @@ var movieName = function(action){
 // // Do-What-It-Says
 var doIt = function() {
 
-fs.readFile("random.txt", "utf8", function(error, data) {
+fs.readFile("./random.txt", "utf8", function(error, data) {
     if (error) {
         return console.log(error);
       } else {
-      var text = data.split(",");
-      spotifySong(random.txt[1]);
+      var txt = data.split(",");
+      spotifySong(txt[1]);
       };
+      console.log("---------------------------")
 
 });
 };
