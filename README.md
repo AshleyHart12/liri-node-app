@@ -33,7 +33,7 @@ This will output the following information to your terminal/bash window:
 * Language of the movie
 * Plot of the movie
 * Actors in the movie
-* ![movie-this](code/liri-node-app/movie_this.png)
+* ![movie-this]<img src="code/liri-node-app/movie_this.png>
 
 **do-what-it-says**
 * Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands
