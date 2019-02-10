@@ -7,7 +7,7 @@
 
 **For a list of commands, type:**
 <br/>
-![command line](/images/commandLine.png)
+* ![command line](/images/commandLine.png)
 <br/>
 <br/>
 
