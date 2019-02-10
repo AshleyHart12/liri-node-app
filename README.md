@@ -4,7 +4,7 @@
 * LIRI will accept 4 differnet commands, outlined below.
 
 **For a list of commands, type:**
-* ![command line](/code/liri-node-app/commandLine.png)
+* ![command line](/images/commandLine.png)
 
 **concert-this**
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
@@ -12,7 +12,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 * Name of the venue
 * Venue location
 * Date of the Event 
-* ![concert-this app](/code/liri-node-app/concertThis.png)
+* ![concert-this app](/images/concertThis.png)
 
 **spotify-this**
 This app will show the following information about the song you requested in your terminal/bash window:
@@ -21,7 +21,7 @@ This app will show the following information about the song you requested in you
 * The song's name
 * A preview link of the song from Spotify
 * The album that the song is from
-* ![spotify-this-song](/code/liri-node-app/spotify.png)
+* ![spotify-this-song](/images/spotify.png)
 
 **movie-this**
 This will output the following information to your terminal/bash window:
@@ -33,11 +33,11 @@ This will output the following information to your terminal/bash window:
 * Language of the movie
 * Plot of the movie
 * Actors in the movie
-* ![movie-this](code/liri-node-app/movie_this.png)
+* ![movie-this](/images/movie_this.png)
 
 **do-what-it-says**
 * Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands
-* ![do-what-it says](/code/liri-node-app/doIt.png)
+* ![do-what-it says](/images/doIt.png)
 
 
 
