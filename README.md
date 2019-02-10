@@ -32,7 +32,7 @@ This app will show the following information about the song you requested in you
 * A preview link of the song from Spotify
 * The album that the song is from
 
-* ![spotify-this-song](/images/spotify.png)
+![spotify-this-song](/images/spotify.png)
 <br/>
 <br/>
 
@@ -48,7 +48,7 @@ This will output the following information to your terminal/bash window:
 * Plot of the movie
 * Actors in the movie
 
-* ![movie-this](/images/movie_this.png)
+![movie-this](/images/movie_this.png)
 <br/>
 <br/>
 
@@ -57,7 +57,7 @@ This will output the following information to your terminal/bash window:
 
 * Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands
 
-* ![do-what-it says](/images/doIt.png)
+![do-what-it says](/images/doIt.png)
 
 
 
